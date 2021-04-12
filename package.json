@@ -1,0 +1,47 @@
+{
+  "name": "boilerplate-docker-node-mysql",
+  "version": "0.1.0",
+  "description": "A boilerplate Docker project for development with a MySQL database, a Node.js backend using Express",
+  "main": "index.js",
+  "scripts": {
+    "build": "docker-compose build",
+    "clean:cache": "docker-compose rm -f",
+    "start": "nodemon ./src/server.js",
+    "start:background": "docker-compose up -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laisfrigerio/boilerplate-docker-node-mysql.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "docker",
+    "container",
+    "node",
+    "nodejs",
+    "express",
+    "api",
+    "js",
+    "javascript",
+    "mysql",
+    "mysql2",
+    "database"
+  ],
+  "author": "Lais Frigerio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/laisfrigerio/boilerplate-docker-node-mysql/issues"
+  },
+  "homepage": "https://github.com/laisfrigerio/boilerplate-docker-node-mysql#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "type": "module",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5"
+  }
+}
