@@ -3,13 +3,21 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const database = mysql.createPool({
-  connectionLimit: 5,
-  database: process.env.DATABASE_NAME,
-  host: process.env.DATABASE_HOST,
-  password: process.env.DATABASE_PASS,
-  port: 3306,
-  user: process.env.DATABASE_USER
-})
+async function connect() {
+    if (global.connection && global.connection.state !== 'disconnected') {
+      return global.connection
+    }
+ 
+    const connection = await mysql.createConnection({
+      database: process.env.DATABASE_NAME,
+      host: process.env.DATABASE_HOST,
+      password: process.env.DATABASE_PASS,
+      port: 3306,
+      user: process.env.DATABASE_USER
+    })
 
-export default database
+    global.connection = connection
+    return connection;
+}
+
+export default connect
